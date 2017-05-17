@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改变DIV属性</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--设置按钮和DIV的CSS属性 -->
+    <style>
+        #ButtonDiv{
+            width: 500px;
+            margin: 0px auto;
+            padding: 0px;
+            text-align: center;
+            position:relative;
+        }
+        .ShowDiv{
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+            margin: 10px auto;
+            display: block;
+            position:relative;
+        }
+    </style>
+    <script>
+        var backgroundColor = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+
+        $(document).ready(function () {
+            //变高
+            $("#buttonTall").click(function () {
+                $(".ShowDiv").animate({
+                    height:'+=100px'
+                });
+            });
+            //变宽
+            $("#buttonWitch").click(function () {
+                $(".ShowDiv").animate({
+                    width:'+=100px'
+                });
+            });
+            //变色
+            $("#buttonColor").click(function () {
+                $(".ShowDiv").css("background-color",backgroundColor);
+                //点击一个换一个颜色？？？
+            });
+           // 隐藏
+            $("#buttonHide").click(function () {
+                $(".ShowDiv").hide();
+            });
+
+            //显示
+            $("#buttonShow").click(function () {
+                $(".ShowDiv").show();
+            });
+            //重置
+            $("#button").click(function () {
+                $(".ShowDiv").css(
+                    {"width": "100px",
+                "height": "100px",
+                "background-color": "bisque",
+                "margin": "10px auto",
+                "display": "block",
+                "position":"relative",
+            });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="ButtonDiv">
+    <button id="buttonTall">变高</button>
+    <button id="buttonWitch">变宽</button>
+    <button id="buttonColor">变色</button>
+    <button id="buttonHide">隐藏</button>
+    <button id="buttonShow">显示</button>
+    <button id="button">重置</button>
+</div>
+<div class="ShowDiv"></div>
+</body>
+</html>
